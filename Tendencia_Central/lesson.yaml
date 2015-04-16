@@ -1,0 +1,135 @@
+
+- Class: meta
+  Course: Análisis de Datos
+  Lesson: Tendencia Central
+  Author: Nick Carchedi; Alcides Chaux, M.D.
+  Type: Standard
+  Organization:
+  Version: 1.0.0
+
+- Class: text
+  Output: Hoy estaré enseñando los fundamentos del análisis de datos. Probablemente tenga sentido si empezamos por definir la palabra DATOS.
+
+- Class: text
+  Output: Según Wikipedia, "los datos corresponden a valores de variables cuantitativas o cualitativas que forman parte de un conjunto de elementos".
+
+- Class: text
+  Output: A menudo al "conjunto de elementos" que nos interesa estudiar se le denomina POBLACIÓN. El análisis de datos usualmente involucra el estudiar un subgrupo, o MUESTRA, del total de una población.
+
+- Class: figure
+  Output: He aquí un diagrama mostrando la relación entre una población y una muestra.
+  Figure: mod1_pop_vs_samp.R
+  FigureType: new
+
+- Class: text
+  Output: El análisis de datos debería siempre empezar con una pregunta específica de interés. Por ejemplo, podríamos preguntarnos "Cuál es el porcentaje de gente viviendo en mi país que mide más de 1.80 metros?"
+
+- Class: text
+  Output: Aquí, nuestra población de interés incluye a todos los habitantes del país. Dado que sería muy poco práctico medir la estatura de todos los habitantes del país, podríamos en vez elegir 100 personas al azar y medir sus estaturas. Esperaríamos que esta muestra de 100 personas sea REPRESENTATIVA de la población total.
+
+- Class: mult_question
+  Output: Evaluemos rápidamente tu comprensión del término REPRESENTATIVO. Si estuvieses interesado en estudiar el estado de salud de hombres viviendo en tu país con edades de 18 a 25 años, cuál muestra sería más representativa? Una muestra de 50 hombres que viven en un asilo? O una muestra de 50 hombres que son estudiantes en una Universidad local?
+  AnswerChoices: Hombres viviendo en el asilo; Estudiantes universitarios
+  CorrectAnswer: Estudiantes universitarios
+  AnswerTests: omnitest(correctVal = 'Estudiantes universitarios')
+  Hint: Dado que tu población enfocada incluye a todos los hombres de 18 a 25 años que viven en el país, cuál de estas dos muestras poblacionales se acerca más a la población de interés?
+
+- Class: video
+  Output: Querrías ver un video (en inglés) acerca de estos tópicos?
+  VideoLink: http://youtu.be/sRArT81TVEM
+
+- Class: text
+  Output: El propósito de analizar una muestra es el obtener conclusiones acerca de la población a partir de la cual la muestra fue tomada. Esto se denomina INFERENCIA y es el objetivo principal de la ESTADÍSTICA INFERENCIAL.
+
+- Class: text
+  Output: Con el fin de hacer inferencias de algún tipo acerca de la población, primero debemos describir la muestra. Este es el objetivo primario de la ESTADÍSTICA DESCRIPTIVA.
+
+- Class: text
+  Output: Si quisiéramos describir nuestra nuestra usando un único número, cómo sería mejor hacerlo? Un buen punto de inicio sería encontrar el elemento central, del medio, o el más común de nuestros datos. Los estadísticos llaman a esto la TENDENCIA CENTRAL.
+
+- Class: text
+  Output: Existen tres métodos diferentes para encontrar este número y la aplicabilidad de cada método depende de la situación. Estos tres métodos se llaman la MEDIA, la MEDIANA, y la MODA.
+
+- Class: video
+  Output: Te gustaría ver un video (en inglés) acerca de la media, mediana y moda?
+  VideoLink: http://youtu.be/h8EYEJ32oQ8
+
+- Class: mult_question
+  Output: Media, mediana, y moda son todas medidas de ____________.
+  AnswerChoices: variación; significancia; desviación; tendencia central
+  CorrectAnswer: tendencia central
+  AnswerTests: omnitest(correctVal = 'tendencia central')
+  Hint: Este es un término elegante para referirse al "medio" de un conjunto de datos.
+
+- Class: mult_question
+  Output: Cuál de los siguientes términos es de mayor importancia para describir la tendencia central de un conjunto de datos?
+  AnswerChoices: mediana, moda, rango; estadísticas, población, moda; población, muestra, representativa; moda, mediana, media
+  CorrectAnswer: moda, mediana, media
+  AnswerTests: omnitest(correctVal = 'moda, mediana, media')
+  Hint: Estos son los tres métodos diferentes que se mencionaron más arriba y que son usados para describir el centro de un conjunto de datos.
+
+- Class: cmd_question
+  Output: Para mostrar estos conceptos veremos ahora un conjunto de datos real que ya he cargado en la memoria. Tipea 'autos' y presiona Enter para ver el conjunto de datos con el que estaremos trabajando.
+  CorrectAnswer: autos
+  AnswerTests: omnitest(correctExpr = 'autos')
+  Hint: Tipea 'autos' y presiona Enter. No uses comillas, espacios o letras en mayúscula.
+
+- Class: text
+  Output: Notarás que las filas están numeradas del 1 al 54, cada una representado exactamente un auto en el conjunto de datos. Para cada auto, las VARIABLES o características que se reportan incluyen 'tipo' (chico, mediano, grande), 'precio' (en US$), 'mpgCiudad' (millas por galón en ciudad), 'trenManejo' (4x4, frontal, trasero), 'pasajeros' (capacidad total), y 'peso' (en libras).
+
+- Class: text
+  Output: Nos enfocaremos en la variable 'mpgCiudad' en esta lección. Para hacerlo más sencillo, extraigamos esta variable de nuestro conjunto de datos y almacenémosla en una nueva variable.
+
+- Class: cmd_question
+  Output: Accede a la variable 'mpgCiudad' del conjunto de datos 'autos' usando la notación 'datos$variable'.
+  CorrectAnswer: autos$mpgCiudad
+  AnswerTests: omnitest(correctExpr = 'autos$mpgCiudad')
+  Hint: Usa la notación 'datos$variable', Recuerda que el nombre de nuestro conjunto de datos es 'autos' y el nombre de la variable que nos interesa es 'mpgCiudad'.
+
+- Class: cmd_question
+  Output: Ahora almacena los contenidos de 'autos$mpgCiudad' en una nueva variable llamada 'miMPG'.
+  CorrectAnswer: miMPG <- autos$mpgCiudad
+  AnswerTests: omnitest(correctExpr = 'miMPG <- autos$mpgCiudad')
+  Hint: Usa el operador de asignación para asignar 'autos$mpgCiudad' a una nueva variable llamada 'miMPG's.
+
+- Class: text
+  Output: La MEDIA ARITMÉTICA, o simplemente la MEDIA o PROMEDIO, es la medida de tendencia central más común. Para calcular la media de un conjunto de datos, primero sumas todos los valores y luego divides esa suma por el número total de valores en el conjunto de datos.
+
+- Class: text
+  Output: Sin embargo, cuando hay muchos valores de interés, se vuelve tedioso hacer este cálculo a mano. Para facilitarte este cálculo he creado una función llamada 'media'. La sintaxis para calcular la media es 'media(variable)'.
+
+- Class: cmd_question
+  Output: Calcula el valor de la media para la variable 'miMPG'.
+  CorrectAnswer: media(miMPG)
+  AnswerTests: omnitest(correctExpr = 'media(miMPG)')
+  Hint: Usa la función 'media' tipeando 'media' seguido del nombre de tu variable entre paréntesis. No uses ningún espacio.
+
+- Class: text
+  Output: Valores extremos en nuestro conjunto de datos pueden tener influencia significativa en la media. Por ejemplo, si hubiese un auto en nuestro conjunto de datos que recorriese 200 millas por galón, esto inflaría la media hacia arriba. Esto podría ser engañoso dado que ninguno de los otros autos se acercó de lejos a este consumo.
+
+- Class: text
+  Output: Una alternativa a la media, que no es influida para nada por valores extremos, es la MEDIANA. La mediana se calcula ordenando todos los valores de menor a mayor y seleccionando luego el valor medio. Si hay un número par de valores, entonces existen 2 valores medios. En este caso, la MEDIANA es igual a la MEDIA de los dos valores del medio. No te preocupes si esto te parece un poco confuso, se irá aclarando con la práctica.
+
+- Class: cmd_question
+  Output: He creado una función para calcular la mediana de un conjunto de datos, tipeando 'mediana(variable)'. Encuentra el valor de la mediana para tu variable 'miMPG'.
+  CorrectAnswer: mediana(miMPG)
+  AnswerTests: omnitest(correctExpr = 'mediana(miMPG)')
+  Hint: Usa la función 'mediana' tipeando 'mediana' seguido del nombre de tu variable en paréntesis. No uses ningún espacio.
+
+- Class: text
+  Output: Finalmente, podríamos estar más interesados en encontrar el valor que más se muestra en nuestro conjunto de datos. En otras palabras, cuál es el valor más común en nuestro conjunto de datos? Este valor se llama la MODA y se halla contando el número de veces que cada valor aparece en el conjunto de datos y seleccionando el valor más frecuente.
+
+- Class: cmd_question
+  Output: He creado la función 'tabla' para ver cuántas veces aparece cada valor en tu variable 'miMPG'. La sintaxis para esta función es la misma que para otras que has visto.
+  CorrectAnswer: tabla(miMPG)
+  AnswerTests: omnitest(correctExpr = 'tabla(miMPG)')
+  Hint: Tipea 'tabla' seguido por el nombre de tu variable entre paréntesis. Como siempre, no uses espacios.
+
+- Class: exact_question
+  Output: Mira la variable 'miMPG' en la tabla que creaste más arriba. La primera fila te da el valor de tu variable y la segunda fila te da el número de veces que aparece en tu conjunto de datos. Dado que la moda es el valor de tu variable que aparece con más frecuencia, cuál es la moda de tu variable 'miMPG'?
+  CorrectAnswer: 19
+  AnswerTests: omnitest(correctVal = 19)
+  Hint: Ten presente que la moda es el valor de la variable que es más común, NO el número de veces que aparece.
+
+- Class: text
+  Output: Felicidades! Has concluido tu primera lección. Hemos presentado algunos conceptos básicos relacionados con los datos y el análisis de datos. Específicamente, has aprendido las 3 medidas más comunes de tendencia central (media, mediana, y moda). También has aprendido cómo calcular estas medidas usando R.

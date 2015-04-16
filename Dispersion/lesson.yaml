@@ -1,0 +1,146 @@
+- Class: meta
+  Course: Análisis de Datos
+  Lesson: Dispersión
+  Author: Nick Carchedi; Alcides Chaux, M.D.
+  Type: Standard
+  Organization:
+  Version: 1.0.0
+
+- Class: text
+  Output: Bienvenido a la Lección 2! En esta lección, aprenderemos lo que es la DISPERSIÓN y cuáles son los valores estadísticos necesarios para describir mejor la dispersión de los datos. Más aún, aprenderás todo acerca del diagrama de caja-y-bigote, que es un gráfico comúnmente utilizado para mostrar la variabilidad de los datos.
+
+- Class: text
+  Output: Mientras que las medidas de tendencia central se utilizan para estimar los valores medios de un conjunto de datos (recuerda la lección anterior), las medidas de dispersión son importantes para describir cuán dispersos están los datos.
+
+- Class: text
+  Output: El término "dispersión" se referie al grado en el cual los valores de los datos están distribuidos alrededor de un valor promedio. Dispersión es asimismo sinónimo de variabilidad.
+
+- Class: text
+  Output: Por qué es importante analizar la dispersión de un conjunto particular de datos? Dos muestras diferentes pueden tener la misma media o mediana, pero diferentes niveles de variabilidad. O viceversa.
+
+- Class: mult_question
+  Output: Por lo tanto, es importante describir tanto la __________ como la _________ de un conjunto de datos.
+  CorrectAnswer: tendencia central, dispersión
+  AnswerChoices: mediana, variabildiad; tendencia central, dispersión; mediana, media; dispersión, variabildiad
+  AnswerTests: omnitest(correctVal = 'tendencia central, dispersión')
+  Hint: El primer término se refiere al punto medio de un conjunto de datos. El segundo término se refiere a la variabilidad de los datos.
+
+- Class: text
+  Output: En esta lección discutiremos los tres valores estadísticos más comúnmente utilizados para describir la dispersión o variabilidad de un conjunto de datos. Variabilidad es un término elegante utilizado para clasificar cuán variables o dispersos son los datos.
+
+- Class: text
+  Output: El primer estadístico descriptivo que puede describir la variabilidad de un conjunto de datos se conoce como el RANGO. El rango es la diferencia entre los valores máximo y mínimo del conjunto de datos.
+
+- Class: text
+  Output: Para demostrar cómo puedes usar R para determinar el rango cargaremos el conjunto de datos 'autos' que vimos en la lección previa, junto con algunas funciones en R que he escrito especialmente para el caso.
+
+- Class: cmd_question
+  Output: Tipea el comando 'rango(autos$precio)' para determinar los valores exactos de los precios mínimo y máximo de autos en el conjunto de datos.
+  CorrectAnswer: rango(autos$precio)
+  AnswerTests: omnitest(correctExpr = 'rango(autos$precio)')
+  Hint: Tipea 'rango(autos$precio)' sin las comillas y presiona Enter para ver los precios mínimo y máximo.
+
+- Class: exact_question
+  Output: Ahora que conoces los valores de los precios mínimo y máximo, calcula el rango de la variable 'precio'.
+  CorrectAnswer: 54.5
+  AnswerTests: omnitest(correctVal = 54.5)
+  Hint: Resta el valor del precio mínimo del valor del precio máximo.
+
+- Class: text
+  Output: La segunda medida importante de variabilidad se conoce como VARIANZA. Matemáticamente, la varianza es el promedio del cuadrado de las diferencias desde la media. Más sencillamente, la varianza representa la distancia total de los datos a la media.
+
+- Class: cmd_question
+  Output: En R, puedes usar el comando 'var()' para calcular fácilmente la varianza de un conjunto particular de datos. Intenta calcular la varianza de la variable 'precio' de nuestro conjunto de datos 'autos'.
+  CorrectAnswer: var(autos$precio)
+  AnswerTests: omnitest(correctExpr = 'var(autos$precio)')
+  Hint: Tipea 'var(autos$precio)' sin las comillas y presiona Enter para ver la varianza en los precios de los autos.
+
+- Class: text
+  Output: Los valores de la varianza y la desviación estándar están muy relacionados. La desviación estándar se puede calcular quitando la raíz cuadrada de la varianza, mientras que la varianza se puede calcular elevando al cuadrado la desviación estándar.
+
+- Class: text
+  Output: Para los estadísticos, la desviación estándar es una medida más convencional de variabilidad debido a que se expresa en las mismas unidades de los valores de los datos originales.
+
+- Class: cmd_question
+  Output: He creado el comando 'dest()' que puedes utilizar para calcular la desviación estándar de un conjunto particular de datos. Intenta calcular la desviación estándar de la variable 'precio' de nuestro conjunto de datos 'autos'.
+  CorrectAnswer: dest(autos$precio)
+  AnswerTests: omnitest(correctExpr = 'dest(autos$precio)')
+  Hint: Tipea 'dest(autos$precio)' sin comillas y presiona Enter para ver la desviación estándar de los precios de los autos.
+
+- Class: text
+  Output: La desviación estándar es muy importante en el análisis de nuestro conjunto de datos. Una desviación estándar pequeña indica que los datos puntuales tienden a localizarse cerca del valor medio, mientras que una desviación estándar grande indica que los datos puntuales están dispersos alejándose de la media.
+
+- Class: video
+  Output: Te gustaría ver un video (en inglés) que profundiza en cómo se calculan la desviación estándar y la varianza?
+  VideoLink: http://youtu.be/E4HAYd0QnRc
+
+- Class: mult_question
+  Output: Las tres medidas más importantes de variabilidad son las siguientes.
+  CorrectAnswer: rango, varianza, desviación estándar
+  AnswerChoices: media, mediana, rango; dispersión, media, tendencia central; varianza, dispersión, variabilidad; rango, varianza, desviación estándar
+  AnswerTests: omnitest(correctVal = 'rango, varianza, desviación estándar')
+  Hint: Busca los tres términos específicos en los que nos hemos enfocado para su cálculo.
+
+- Class: text
+  Output: Un DIAGRAMA DE CAJA, también llamando DIAGRAMA-DE-CAJA-Y-BIGOTE, es un gráfico utilizado para resumir los principales estadísticos descriptivos de un conjunto particular de datos. Este tipo de gráfico nos ayudará a mostrar el concepto de variabilidad. Un diagrama de caja se usa para representar visualmente el valor MÍNIMO, el PRIMER CUARTIL (Q1), la MEDIANA, el TERCER CUARTIL (Q3) y el valor MÁXIMO de un conjunto de datos.
+
+- Class: video
+  Output: Querrías ver un video (en inglés) acerca de los diagramas de caja?
+  VideoLink: http://youtu.be/BXq5TFLvsVw
+
+- Class: figure
+  Output: Aquí he creado un diagrama de caja para representar los datos de los precios para cada uno de los tres tipos de autos (grande, mediano, y chico). Notarás que cada una de las tres figuras está compuesta por una "caja" cerrada de 4 lados con "bigotes" por encima y por debajo. De ahí el nombre de diagrama-de-caja-y-bigote.
+  Figure: mod1_boxplot.R
+  FigureType: new
+
+- Class: text
+  Output: La altura de cada caja se conoce como el RANGO INTERCUARTILO (RIC). Cuanto más variabilidad hay en los datos, mayor es el RIC. Por el otro lado, a menos variabilidad en los datos menor el RIC. La base de la caja en el diagrama de caja corresponde al valor del primer cuartil (Q1), y el techo de la caja corresponde al valor del tercer cuartil (Q3). Para calcular el valor del RIC simplemente se debe restar el valor de Q1 del valor de Q3.
+
+- Class: exact_question
+  Output: He creado la función 'RIC()' que calcula el rango intercuartilo de un conjunto particular de datos tomando los valores de Q1 y Q3 y restándolos entre sí. Usa lo que has aprendido hasta ahora para calcular el RIC de la variable 'precios' del conjunto de datos 'autos'.
+  CorrectAnswer: RIC(autos$precio)
+  AnswerTests: omnitest(correctExpr = 'RIC(autos$precio)')
+  Hint: Tipea 'RIC(autos$precio)' sin comillas y presiona Enter para ver el rango intercuarilo de los precios de los autos.
+
+- Class: text
+  Output: Los bigotes, o líneas, que se extienden por encima y debajo de cada caja representan aproximadamente el 25% superior y 25% inferior de los datos puntuales, respectivamente. La única excepción se da cuando aparecen valores atípicos (más sobre eso luego).
+
+- Class: text
+  Output: Miremos más de cerca a cómo los cuartilos son calculados. Empezamos por ordenar los datos de menor a mayor, exactamente como hicimos para calcular la mediana. El primer cuartil (Q1), también conocido como el PERCENTIL 25º (ya que el 25% de los datos puntuales caen en o por debajo de este valor), es simplemente la mediana de la primera mitad de los datos ordenados. Del mismo modo, el tercer cuartil (Q3), también conocido como el PERCENTIL 75º, es la mediana de la segunda mitad de los datos ordenados.
+
+- Class: figure
+  Output: Como se puede ver en este diagrama, la línea horizontal azul muestra cómo hallar el valor para el primer cuartil. La línea horizontal verde muestra cómo hallar el valor para el tercer cuartil. El rango intercuartilo es el rango de los valores de los datos que se encuentra entre estas dos líneas.
+  Figure: mod1_boxplot_add.R
+  FigureType: addition
+
+- Class: figure
+  Output: Mira nuevamente nuestro diagrama de caja de precio vs. tipo de auto. Puede que estés pensando, "qué es ese círculo por encima del diagrama de caja de los autos medianos, y por qué no hay círculos por encima del diagrama de caja de los autos grandes?". Esos círculos representan los VALORES ATÍPICOS del conjunto de datos.
+  Figure: mod1_boxplot.R
+  FigureType: new
+
+- Class: figure
+  Output: Un VALOR ATÍPICO es una observación que es inusual o extrema relativa a los otros valores en el conjunto de datos. Los valores atípicos son útiles para identificar una asimetría marcada en una distribución, y pueden indicar al científico un error en la recolección o la carga de los datos. Existen muchas convecciones para identificar valores atípicos dentro de un conjunto de datos.
+  Figure: mod1_boxplot.R
+  FigureType: new
+
+- Class: mult_question
+  Output: Al mirar al diagrama de caja, cuáles tipos de autos parecen tener valores atípicos?
+  AnswerChoices: chico, mediano; mediano, grande; chico, grande; chico, mediano, grande
+  CorrectAnswer: chico, mediano
+  AnswerTests: omnitest(correctVal = 'chico, mediano')
+  Hint: Busca los tipos de autos que correspondan a los diagramas de caja con círculos por encima o por debajo de las cajas.
+
+- Class: figure
+  Output: Como puedes ver en el diagraa de caja, los datos de los precios de los autos 'medianos' varían desde 15 a 62, dando un rango de aproximadamente 50. Esto es mucho mayor que la variación observada para los autos 'chicos', los que varían de 5 a 15, dando un rango aproximado de 10. Por lo tanto, dado que el rango es mucho mayor para los autos 'medianos', los precios de los autos 'medianos' presentan mucha mayor variabilidad en comparación con los precios de los autos 'chicos'.
+  Figure: mod1_boxplot.R
+  FigureType: new
+
+- Class: mult_question
+  Output: Ahora es tu turno! Es la variabilidad en los precios de los autos 'grandes' mayor o menor que la variabilidad en los precios de los autos 'chicos'?
+  AnswerChoices: mayor; menor; igual
+  CorrectAnswer: mayor
+  AnswerTests: omnitest(correctVal = 'mayor')
+  Hint: Fíjate si el rango de los autos 'grandes' es mayor o menor que el de los autos 'chicos'.
+
+- Class: text
+  Output: Oficialmente dominas el concepto de dispersión y has aprendido completamente cómo leer e interpretar un diagrama-de-caja-y-bigote. Estas son dos herramientas muy valiosas usadas cotidianamente en estadística descriptiva. Felicidades! En la siguiente lección, aprenderás acerca de visualización de datos.

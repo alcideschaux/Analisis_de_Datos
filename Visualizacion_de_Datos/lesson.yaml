@@ -1,0 +1,184 @@
+
+- Class: meta
+  Course: Análisis de Datos
+  Lesson: Visualización de Datos
+  Author: Nick Carchedi; Alcides Chaux, M.D.
+  Type: Standard
+  Organization:
+  Version: 1.0.0
+
+- Class: text
+  Output: Ahora que has aprendido las técnicas y cálculos estadísticos básicos utilizados para describir un conjunto de datos, el siguiente paso es descubrir como mostrar y visualizar tus datos de manera efectiva.
+
+- Class: text
+  Output: Es útil visualizar primero los datos antes de embarcarse en un análisis exhaustivo del conjunto de datos. En esta lección, vamos a aprender algunas técnicas útiles para la visualización de variables numéricas y categóricas.
+
+- Class: text
+  Output: Una forma de explorar y resumir las propiedades básicas de un conjunto de datos es mediante un DIAGRAMA o un GRÁFICO. La disciplina que describe las propiedades cuantitativas del conjunto de datos se conoce como ESTADÍSTICA DESCRIPTIVA.
+
+- Class: text
+  Output: El tipo más simple de diagrama es el DIAGRAMA DE PUNTOS, que es usado para transmitir visualmente los valores de una variable. En un diagrama de puntos, existe sólo un eje horizontal 'x', y los datos puntuales se representan como puntos por encima de este eje.
+
+- Class: figure
+  Output: He aquí un diagrama de puntos creado usando la variable 'precio' de nuestro conjunto de datos 'autos'. Como puedes ver, el precio se reporta a lo largo del eje 'x' en $1000s, y cada punto por encima del eje representa el precio de uno de los 54 autos de nuestro conjunto de datos.
+  Figure: mod1_dotplot.R
+  FigureType: new
+
+- Class: exact_question
+  Output: Al mirar este diagrama de puntos, alrededor de cuál precio (en $1000s) parece observarse la mayor densidad de datos puntuales?
+  CorrectAnswer: 10
+  AnswerTests: omnitest(correctVal = 10)
+  Hint: Mira el diagrama y localiza la zona donde los puntos están más juntos. Luego fíjate en el número que aparece en el eje x sobre esa zona.
+
+- Class: text
+  Output: Dado que los diagramas de puntos muestran efectivamente los valores numéricos específicos del conjunto de datos, son particularmente útiles cuando se analizan conjuntos de datos pequeños.
+
+- Class: text
+  Output: Un HISTOGRAMA es similar a un diagrama de puntos, pero en vez de mostrar cada valor específico, divide los valores de tus datos en varios contenedores, ofreciendo una representación más condensada de los datos.
+
+- Class: figure
+  Output: Aquí he creado un histograma usando los datos de millas por galón (MPG) para todos nuestros autos. Como puedes notar, los valores de MPG a lo largo del eje 'x' están divididos en contenedores con un rango de 5. El segundo contenedor, por ejemplo, agrupa a todos los autos que consumen 21-25 MPG en ciudad, y así sucesivamente. Nota que el contenedor a la izquierda de aquel contiene aquellos autos que consumen 20 MPG, dado que este valor no puede ser contado para ambos contenedores. La frecuencia de valores en cada contenedor, o el número total de autos en cada uno de los intervalos, se reporta a lo largo del eje 'y'.
+  Figure: mod1_histogram.R
+  FigureType: new
+
+- Class: text
+  Output: Barras más altas indican el rango de valores en el cual se encuentra la mayoría de los datos, mientras que barras más bajas representan el rango de valores en el cual sólo una pequeña parte de los datos se localiza. En otras palabras, los histogramas brindan una vista de la DENSIDAD DE DATOS.
+
+- Class: mult_question
+  Output: Simplemente mirando el histograma, puedes decirme cuál intervalo de MPG presenta la mayor frecuencia de valores? Por ejemplo, las frecuencias más bajas se ven en los intervalos 36-40, 41-45, y 46-50.
+  AnswerChoices: 16-20; 21-25; 26-30; 31-35; 36-40; 41-45; 46-50
+  CorrectAnswer: 16-20
+  AnswerTests: omnitest(correctVal = '16-20')
+  Hint: Busca los valores del contenedor con la barra más alta en el histograma.
+
+- Class: exact_question
+  Output: Cuántos autos consumen 16-20 MPG en ciudad?
+  CorrectAnswer: 25
+  AnswerTests: omnitest(correctVal = 25)
+  Hint: Busca el valor más alto en el eje y que corresponde a la barra de '16-20'.
+
+- Class: figure
+  Output: He dibujado una línea roja en nuestro histograma para ilustrar la respuesta anterior.
+  Figure: mod1_histogram_add.R
+  FigureType: addition
+
+- Class: text
+  Output: Los histogramas son particularmente útiles para visualizar y describir la forma de la distribución de los datos. Una distribución puede presentar una asimetría izquierda, una asimetría derecha, o ser simétrica. La ASIMETRÍA es una medida de la extensión con la cual la distribución de los datos se "recuesta" hacia un lado u otro.
+
+- Class: figure
+  Output: Una distribución que tenga asimetría izquierda es una en la cual la COLA izquierda del gráfico es más larga. En otras palabras, en un histograma la mayoría de la distribución se encuentra a la derecha de la media. Entonces, cuando una distribución presenta asimetría izquierda, el valor de la MEDIA es menor que el valor de la MEDIANA, y por lo tanto la MEDIA se localiza alejada hacia la izquierda de la distribución. En este gráfico, la línea verde representa la mediana y la línea azul representa la media.
+  Figure: mod1_leftskew.R
+  FigureType: new
+
+- Class: figure
+  Output: Por el otro lado, una distribución que tenga una asimetría derecha es una en la cual la COLA derecha es más larga, de modo a que la mayoría de los datos caen a la izquierda de la media cuando se visualizan en un histograma. Cuando la distribución tiene asimetría derecha, por lo tanto, el valor de la MEDIA es mayor que el valor de la MEDIANA, y entonces la MEDIA se localiza alejada hacia la derecha de la distribución. En este gráfico, la línea verde representa la mediana y la línea azul representa la media.
+  Figure: mod1_rightskew.R
+  FigureType: new
+
+- Class: figure
+  Output: Un gráfico que no presente asimetría es uno en el cual las COLAS a ambos lados de la media se balancean equitativamente. Esta distribución se dice que presenta SIMETRÍA o es SIMÉTRICA. Cuando una distribución es simétrica, los valores de la MEDIA y la MEDIA son aproximadamente iguales. En este gráfico, la línea verde representa la mediana y la línea azul representa la media. La línea verde es la única visible ya que la media y la mediana presentan casi el mismo valor.
+  Figure: mod1_symmetric.R
+  FigureType: new
+
+- Class: figure
+  Output: Ahora, miremos de vuelta el histograma que hicimos antes, el que representa la distribución de los valores de MPG en ciudad por cada uno de los 54 autos de nuestro conjunto de datos 'autos'.
+  Figure: mod1_histogram.R
+  FigureType: new
+
+- Class: mult_question
+  Output: Cómo clasificarías la forma de la distribución representada por este histograma?
+  AnswerChoices: simétrica; asimetría derecha; asimetría izquierda
+  CorrectAnswer: asimetría derecha
+  AnswerTests: omnitest(correctVal = 'asimetría derecha')
+  Hint: Fíjate cual extremo de la cola se extiende más. Los datos presentarán asimetría hacia esa dirección. O fíjate si las colas se extienden relativamente la misma distancia a cada lado.
+
+- Class: mult_question
+  Output: Con respecto al histograma anterior, y teniendo en mente la forma real de la distribución, esperarías que la MEDIANA sea mayor, menor o igual a la MEDIA?
+  AnswerChoices: mayor; menor; igual
+  CorrectAnswer: menor
+  AnswerTests: omnitest(correctVal = 'menor')
+  Hint: Revisa los conceptos desarrollados previamente para descubrir cómo es el valor de la mediana con respecto a la media en una distribución con asimetría derecha.
+
+- Class: text
+  Output: Un tipo especial de histograma es conocido como DIAGRAMA DE-TALLO-Y-HOJA. Este gráfico organiza los datos numéricos teniendo en cuenta el orden del lugar del valor decimal. La columna de la izquierda del gráfico contiene los TALLOS, o los valores numéricos de los dígitos de las decenas de cada uno de los datos puntuales, organizados verticalmente en orden creciente. Las HOJAS se localizan en la columna de la derecha y corresponden a los valores de los dígitos de la unidad de cada uno de los datos puntuales del tallo correspondiente, organizados horizontalmente en orden creciente.
+
+- Class: text
+  Output: En un diagrama de tallo-y-hoja, el número de hojas es igual al número de elementos del conjunto de datos. La forma más sencilla de entender un diagrama de tallo-y-hoja es viendo uno!
+
+- Class: video
+  Output: Te gustaría ver un video (en inglés) acerca de los diagramas de tallo-y-hoja?
+  VideoLink: http://youtu.be/OaJXJduRiIE
+
+- Class: figure
+  Output: He creado un diagrama de tallo-y-hoja usando los mismos valores de la variable 'mpgCiudad' que usamos para nuestro histograma. Como puedes ver, un diagrama de tallo-y-hoja es un tipo muy útil de histograma si quieres ver las frecuencias de valores específicos en los datos. A menudo, habrá sólo un contenido por cada dígito de la decena, pero en este caso R usa los mismos contenedores que vimos en nuestro histograma.
+  Figure: mod1_stem.R
+  FigureType: new
+
+- Class: exact_question
+  Output: Observa este diagrama de tallo-y-hoja y responde, cuántas veces aparece el valor '22' en este conjunto particular de datos?
+  CorrectAnswer: 4
+  AnswerTests: omnitest(correctVal = 4)
+  Hint: Encuentra el tallo que contenga el valor de la decena y luego la hoja que contenga el valor del dígito.
+
+- Class: figure
+  Output: El último tipo de gráfico que puede ser utilizado para variables numéricas es el DIAGRAMA DE CAJA, también llamado DIAGRAMA DE CAJA-Y-BIGOTE. Como has aprendido previamente, este gráfico se usa para resumir los estadísticos principales de un conjunto particular de datos y ayuda a ilustrar el concepto de variabilidad. He creado un diagrama de caja para que recuerdes cómo se ve.
+  Figure: mod1_boxplot.R
+  FigureType: new
+
+- Class: cmd_question
+  Output: Un diagrama de caja se usa para representar visualmente el valor MÍNIMO, el PRIMER CUARTIL (Q1), la MEDIANA, el SEGUNDO CUARTIL (Q3), y el valor MÁXIMO de un conjunto de datos. He creado el comando 'resumen()' que regresa los valores de estos estadísticos descriptivos. Pruébalo con la variable 'precios' de nuestro conjunto de datos 'autos'.
+  CorrectAnswer: resumen(autos$precio)
+  AnswerTests: omnitest(correctExpr = 'resumen(autos$precio)')
+  Hint: Usa la función 'resumen()' con la variable 'precio' del conjunto de datos 'autos' usando la sintaxis habitual.
+
+- Class: text
+  Output: Hasta ahora, hemos visto las opciones disponibles para la visualización de variables numéricas. Nos queda pendiente la visualización de variables categóricas.
+
+- Class: text
+  Output: Recordemos que las variables categóricas son aquellas en las que los datos pueden ser agrupados en distintos niveles, mutuamente excluyentes entre sí. Por ejemplo, consideremos la variable 'tipo' de nuestro conjunto de datos 'autos'. La variable 'tipo' presenta 3 niveles (grande, mediano, chico) que indican a qué tipo corresponden cada uno de los 54 autos de nuestro conjunto de datos. Cada auto puede corresponder sólo a uno de los tipos indicados, y ninguno a más de uno, es decir, los niveles son mutuamente excluyentes.
+
+- Class: cmd_question
+  Output: He creado la función 'niveles()' que muestra los niveles de una variable categórica. Usa esta función para revisar cuáles son los niveles de la variable 'trenManejo' del conjunto de datos 'autos'.
+  CorrectAnswer: niveles(autos$trenManejo)
+  AnswerTests: omnitest(correctExpr = 'niveles(autos$trenManejo)')
+  Hint: Usa la función 'niveles()' con la variable 'trenManejo' del conjunto de datos 'autos' usando la sintaxis habitual.
+
+- Class: text
+  Output: Como puedes ver, la variable 'trenManejo' presenta 3 niveles (4x4, frontal, trasero), indicando cuál es el tipo de tren de manejo que presentan cada uno de los 54 autos de nuestro conjunto de datos. Sin embargo, esto no es muy informativo, verdad?
+
+- Class: cmd_question
+  Output: Otra opción sería crear una tabla de frecuencias que nos muestre cuántos autos corresponden a cada nivel. Para facilitar esto he creado la función 'tabla()'. Úsala para saber la distribución de frecuencias de la variable 'trenManejo'.
+  CorrectAnswer: tabla(autos$trenManejo)
+  AnswerTests: omnitest(correctExpr = 'tabla(autos$trenManejo)')
+  Hint: Usa la función 'tabla()' con la variable 'trenManejo' del conjunto de datos 'autos' usando la sintaxis habitual.
+
+- Class: text
+  Output: Esto está mucho mejor! Sabemos cuántos autos tienen cada uno de los tipos de tren de manejo. Nos queda utilizar un gráfico para visualizar estos datos. La opción habitual para estos casos es el GRÁFICO DE BARRAS, en el que los distintos niveles se ubican en el eje 'x' y el número de elementos en cada nivel se indican en el eje 'y'. Dicen que una imagen vale maś que 1000 palabras, por lo tanto...
+
+- Class: figure
+  Output: Veamos cómo se ve uno! He creado este gráfico de barras para la variable 'trenManejo' del conjunto de datos 'autos'. Como puedes ver, los distintos niveles de la variable 'trenManejo' se encuentran en el eje 'x' mientras que el eje 'y' nos da la frecuencia de autos para cada nivel.
+  Figure: mod1_bar.R
+  FigureType: new
+
+- Class: mult_question
+  Output: En un gráfico de barras, la altura de las barras nos indica el número de elementos por cada nivel de la variable categórica. Fíjate en el gráfico anterior y ordena los niveles de menor a mayor.
+  CorrectAnswer: 4x4, trasero, frontal
+  AnswerChoices: 4x4, trasero, frontal; frontal, trasero, 4x4; frontal, 4x4, trasero; trasero, frontal, 4x4
+  AnswerTests: omnitest(correctVal = '4x4, trasero, frontal')
+  Hint: Fíjate en la altura de las barras y ordena los niveles de menor a mayor.
+
+- Class: text
+  Output: Como puedes ver, un gráfico de barras es parecido a un histograma. Sin embargo, el parecido es meramente superficial, ya que se utilizan en contextos bien diferentes. Sólo para asegurarme que has entendido todo, completa el siguiente enunciado.
+
+- Class: mult_question
+  Output: Los histogramas se utilizan para visualizar variables __________ y los gráficos de barras se utilizan para visualizar variables __________.
+  CorrectAnswer: numéricas, categóricas
+  AnswerChoices: numéricas, categóricas; categóricas, numéricas; categóricas, categóricas; numéricas, numéricas
+  AnswerTests: omnitest(correctVal = 'numéricas, categóricas')
+  Hint: Revisa los conceptos que hemos presentado a lo largo de esta lección.
+
+- Class: text
+  Output: No quiero dar por terminada la discusión sobre visualización de datos categóricos sin antes mencionar los (tristemente populares) gráficos de tortas. Para resumir, los gráficos de tortas presentan ineficiente y confusamente los datos, por lo que he decido no utilizarlos en esta lección. El motivo es sencillo. El ojo humano juzga bien las medidas lineales mientras que juzga muy mal las áreas relativas. Por lo tanto, siempre es preferible utilizar un gráfico de barras.
+
+- Class: text
+  Output: Has llegado al final de esta lección, y has aprendido las técnicas de visualización disponibles para variables numéricas y categóricas. Felicidades! En lecciones posteriores revisaremos las técnicas de visualización para múltiples variables.

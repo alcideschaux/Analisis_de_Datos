@@ -1,0 +1,5 @@
+plot(0, xlim = c(-10,10), ylim = c(-10,10), type="n", xlab = "", ylab = "", bty = "n", xaxt = "n",yaxt = "n", main = "Población vs. Muestra")
+draw.circle(0,0,6.4, border = "black", col = "yellow")
+draw.circle(3,0,3, border = "black", col = "red")
+text(-3.5,0, "Población", font = 2)
+text(3,0, "Muestra", font = 2)

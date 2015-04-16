@@ -1,0 +1,104 @@
+- Class: meta
+  Course: Análisis de Datos
+  Lesson: Evaluación del Curso
+  Author: Alcides Chaux, M.D.
+  Type: Standard
+  Organization:
+  Version: 1.0.0
+
+- Class: text
+  Output: En esta lección evaluaremos lo aprendido a lo largo de este Curso de "Análisis de Datos". Para este propósito, utilizaremos el mismo conjunto de datos 'autos' que hemos utilizado en las otras lecciones, así como todas las funciones que he creado previamente (las cuales deberías haber memorizado). Así que, dedos al teclado!
+
+- Class: cmd_question
+  Output: Calcula la media para la variable 'peso'.
+  CorrectAnswer: media(autos$peso)
+  AnswerTests: omnitest(correctExpr = 'media(autos$peso)')
+
+- Class: cmd_question
+  Output: Crea una tabla de sumario de los estadísticos principales para la variable 'peso'.
+  CorrectAnswer: resumen(autos$peso)
+  AnswerTests: omnitest(correctExpr = 'resumen(autos$peso)')
+
+- Class: exact_question
+  Output: Usando la tabla de sumario anterior, cuál es la diferencia entre el valor máximo y el valor mínimo de la variable 'peso'?
+  CorrectAnswer: 2410
+  AnswerTests: omnitest(correctVal = 2410)
+
+- Class: cmd_question
+  Output: Calcula la desviación estandar de la variable 'peso'.
+  CorrectAnswer: dest(autos$peso)
+  AnswerTests: omnitest(correctExpr = 'dest(autos$peso)')
+
+- Class: figure
+  Output: Fíjate en este histograma y responde la siguiente pregunta.
+  Figure: hist_der.R
+  FigureType: new
+
+- Class: mult_question
+  Output: Cómo clasificarías a la forma de este histograma?
+  CorrectAnswer: asimetría derecha
+  AnswerChoices: asimetría derecha; asimetría izquierda; simétrico
+  AnswerTests: omnitest(correctVal = 'asimetría derecha')
+
+- Class: figure
+  Output: Fíjate en este histograma y responde la siguiente pregunta.
+  Figure: hist_sim.R
+  FigureType: new
+
+- Class: mult_question
+  Output: En este histograma, la media es __________ a la mediana.
+  CorrectAnswer: aproximadamente igual
+  AnswerChoices: aproximadamente igual; mayor; menor
+  AnswerTests: omnitest(correctVal = 'aproximadamente igual')
+
+- Class: figure
+  Output: Fíjate en este histograma y responde la siguiente pregunta.
+  Figure: hist_izq.R
+  FigureType: new
+
+- Class: mult_question
+  Output: Cuál de los siguientes procesos es más probable que presente una distribución similar a la representada por este histograma?
+  CorrectAnswer: edad de muerte en países desarrollados
+  AnswerChoices: edad de muerte en países desarrollados; altura de una muestra de hombres jóvenes; puntajes obtenidos en un examen final difícil
+  AnswerTests: omnitest(correctVal = 'edad de muerte en países desarrollados')
+
+- Class: figure
+  Output: Fíjate en este diagrama de puntos y responde la siguiente pregunta.
+  Figure: dotplot.R
+  FigureType: new
+
+- Class: exact_question
+  Output: A qué punto de corte parece corresponder la mayor densidad de puntos?
+  CorrectAnswer: 3500
+  AnswerTests: omnitest(correctVal = 3500)
+
+- Class: figure
+  Output: Fíjate en este diagrama de caja-y-bigote y responde la siguiente pregunta.
+  Figure: boxplot.R
+  FigureType: new
+
+- Class: mult_question
+  Output: Cuál de los siguientes niveles de la variable 'trenManejo' presenta mayor variabilidad?
+  CorrectAnswer: frontal
+  AnswerChoices: frontal; 4x4; trasero
+  AnswerTests: omnitest(correctVal = 'frontal')
+
+- Class: figure
+  Output: Fíjate en este gráfico de barras y responde la siguiente pregunta.
+  Figure: barplot.R
+  FigureType: new
+
+- Class: exact_question
+  Output: Cuántos autos presentan la menor capacidad de pasajeros?
+  CorrectAnswer: 10
+  AnswerTests: omnitest(correctVal = 10)
+
+- Class: text
+  Output: FELICIDADES! Has completado esta lección! Espero tenerte de vuelta para muchas lecciones más en el futuro.
+
+- Class: mult_question
+  Output: Quieres informar a tu Instructor que has completado exitosamente esta lección de evaluación?
+  CorrectAnswer: NULL
+  AnswerChoices: Sí; No
+  AnswerTests: notify()
+  Hint: NULL
